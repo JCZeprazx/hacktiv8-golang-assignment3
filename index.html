@@ -62,32 +62,31 @@
       let wind = parseInt("{{.Status.Wind}}");
 
       if (water < 5) {
-          statusWater = "Aman";
-          document.getElementById("statuswaterBtn").classList.add("btn-succes");
-      } else if (6 <= water && water <= 8) {
-          statusWater = "Siaga"
-          document.getElementById("statuswaterBtn").classList.add("btn-warning");
+        statusWater = "Aman";
+        document.getElementById("statuswaterBtn").classList.add("btn-success");
+      } else if (water <= 8) {
+        statusWater = "Siaga";
+        document.getElementById("statuswaterBtn").classList.add("btn-warning");
       } else if (water > 8) {
-          statusWater = "Tidak aman"
-          document.getElementById("statuswaterBtn").classList.add("btn-danger");
+        statusWater = "Tidak aman";
+        document.getElementById("statuswaterBtn").classList.add("btn-danger");
       }
 
       if (wind < 6) {
-          statusWind = "Aman";
-          document.getElementById("statuswindBtn").classList.add("btn-success");
-      } else if (7 <= wind && water <= 15) {
-          statusWind = "Siaga"
-          document.getElementById("statuswindBtn").classList.add("btn-warning");
+        statusWind = "Aman";
+        document.getElementById("statuswindBtn").classList.add("btn-success");
+      } else if (wind <= 15) {
+        statusWind = "Siaga";
+        document.getElementById("statuswindBtn").classList.add("btn-warning");
       } else if (wind > 15) {
-          statusWind = "Tidak aman"
-          document.getElementById("statuswindBtn").classList.add("btn-danger");
+        statusWind = "Tidak aman";
+        document.getElementById("statuswindBtn").classList.add("btn-danger");
       }
 
       document.getElementById("statuswindBtn").innerText = statusWind;
       document.getElementById("statuswaterBtn").innerText = statusWater;
-
-      document.getElementById
     </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
