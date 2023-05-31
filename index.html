@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="5" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>Assignment-3</title>
+    <style>
+      .custom-card {
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+      }
+      .custom-card .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .custom-card .card-text {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card custom-card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">Water Status</h5>
+              <p class="card-text">Status: {{.Status.Water}}</p>
+              <button
+                type="button"
+                class="btn btn-success"
+                id="statuswaterBtn"
+              ></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card custom-card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">Wind Status</h5>
+              <p class="card-text">Status: {{.Status.Wind}}</p>
+              <button type="button" class="btn" id="statuswindBtn"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script lang="js">
+      let statusWater = "";
+      let statusWind = "";
+      let water = parseInt("{{.Status.Water}}");
+      let wind = parseInt("{{.Status.Wind}}");
+
+      if (water < 5) {
+          statusWater = "Aman";
+          document.getElementById("statuswaterBtn").classList.add("btn-succes");
+      } else if (6 <= water && water <= 8) {
+          statusWater = "Siaga"
+          document.getElementById("statuswaterBtn").classList.add("btn-warning");
+      } else if (water > 8) {
+          statusWater = "Tidak aman"
+          document.getElementById("statuswaterBtn").classList.add("btn-danger");
+      }
+
+      if (wind < 6) {
+          statusWind = "Aman";
+          document.getElementById("statuswindBtn").classList.add("btn-success");
+      } else if (7 <= wind && water <= 15) {
+          statusWind = "Siaga"
+          document.getElementById("statuswindBtn").classList.add("btn-warning");
+      } else if (wind > 15) {
+          statusWind = "Tidak aman"
+          document.getElementById("statuswindBtn").classList.add("btn-danger");
+      }
+
+      document.getElementById("statuswindBtn").innerText = statusWind;
+      document.getElementById("statuswaterBtn").innerText = statusWater;
+
+      document.getElementById
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
